@@ -1,0 +1,71 @@
+<!-- Hero -->
+<div class="relative min-h-[65vh] flex items-center justify-center bg-green-900">
+  <div class="absolute inset-0 bg-[url('/images/hero-guac.jpg')] bg-cover bg-center opacity-30"></div>
+  <div class="relative text-center text-white px-6 max-w-2xl">
+    <h1 class="text-5xl font-bold mb-4">Fresh Guacamole Kits Delivered</h1>
+    <p class="text-lg text-green-100 mb-8">
+      Hand-crafted guacamole varieties and complementary snacks, with all the ingredients you need delivered to your door.
+    </p>
+    <div class="flex flex-wrap gap-3 justify-center">
+      <a href="/mealkits" class="btn btn-warning btn-lg">See This Week's Menu</a>
+      <a href="/sign-up" class="btn btn-outline text-white border-white hover:bg-white hover:text-green-900 btn-lg">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<!-- Why MamaMia -->
+<section class="py-14 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-green-900 mb-10">Why Choose MamaMia?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="card bg-base-100 border border-gray-100 shadow-sm text-center p-4">
+        <div class="text-4xl mb-3">📦</div>
+        <h3 class="font-bold text-green-800 mb-1">Pick a Kit</h3>
+        <p class="text-sm text-gray-500">Choose from our weekly selection of guacamole kits.</p>
+      </div>
+
+      <div class="card bg-base-100 border border-gray-100 shadow-sm text-center p-4">
+        <div class="text-4xl mb-3">🥑</div>
+        <h3 class="font-bold text-green-800 mb-1">Fresh Ingredients</h3>
+        <p class="text-sm text-gray-500">Hand-picked avocados and fresh produce every time.</p>
+      </div>
+
+      <div class="card bg-base-100 border border-gray-100 shadow-sm text-center p-4">
+        <div class="text-4xl mb-3">🍳</div>
+        <h3 class="font-bold text-green-800 mb-1">Easy to Make</h3>
+        <p class="text-sm text-gray-500">Simple step-by-step recipe cards included with every kit.</p>
+      </div>
+
+      <div class="card bg-base-100 border border-gray-100 shadow-sm text-center p-4">
+        <div class="text-4xl mb-3">🚚</div>
+        <h3 class="font-bold text-green-800 mb-1">Fast Delivery</h3>
+        <p class="text-sm text-gray-500">Delivered straight to your door in eco-friendly packaging.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Featured Meal Kits -->
+<section class="py-14 bg-green-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-green-900 mb-2">Featured Kits</h2>
+    <p class="text-center text-gray-500 mb-10">Customer favourites this week</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <% featuredMeals.forEach(function(kit) { %>
+        <%- include('../partials/mealkit', { kit: kit }) %>
+      <% }); %>
+    </div>
+    <div class="text-center mt-8">
+      <a href="/mealkits" class="btn btn-success">View Full Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-12 bg-yellow-400 text-center">
+  <h2 class="text-3xl font-bold text-green-900 mb-3">Ready to get started?</h2>
+  <p class="text-green-800 mb-6">Join MamaMia today and get your first kit delivered this week.</p>
+  <a href="/sign-up" class="btn btn-success btn-lg">Create a Free Account</a>
+</section>

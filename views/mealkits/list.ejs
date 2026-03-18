@@ -1,0 +1,38 @@
+<div class="min-h-screen bg-green-50 py-12 px-4">
+  <div class="max-w-5xl mx-auto">
+
+    <h1 class="text-3xl font-bold text-green-900 mb-2">Meal Kit Manager</h1>
+    <p class="text-green-700 mb-8">Welcome, <%= user.firstName %>. Here are all the current meal kits.</p>
+
+    <% categories.forEach(function(cat) { %>
+      <div class="mb-10">
+        <h2 class="text-xl font-semibold text-green-800 mb-4"><%= cat.categoryName %></h2>
+        <div class="overflow-x-auto">
+          <table class="table w-full bg-white shadow rounded-lg">
+            <thead class="bg-green-800 text-white">
+              <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Cook Time</th>
+                <th>Servings</th>
+                <th>Featured</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% cat.mealKits.forEach(function(kit) { %>
+                <tr>
+                  <td><%= kit.title %></td>
+                  <td>$<%= kit.price.toFixed(2) %></td>
+                  <td><%= kit.cookingTime %> min</td>
+                  <td><%= kit.servings %></td>
+                  <td><%= kit.featuredMealKit ? 'Yes' : 'No' %></td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% }); %>
+
+  </div>
+</div>

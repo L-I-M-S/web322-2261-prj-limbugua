@@ -1,0 +1,21 @@
+<div class="bg-green-800 text-white py-12 text-center">
+  <h1 class="text-4xl font-bold mb-2">This Week's Menu</h1>
+  <p class="text-green-200">Browse our fresh guacamole kits and snack pairings.</p>
+</div>
+
+<div class="bg-green-50 py-10 min-h-screen">
+  <div class="container mx-auto px-6">
+
+    <% categories.forEach(function(cat) { %>
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-green-900 mb-6"><%= cat.categoryName %></h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <% cat.mealKits.forEach(function(kit) { %>
+            <%- include('../partials/mealkit', { kit: kit }) %>
+          <% }); %>
+        </div>
+      </div>
+    <% }); %>
+
+  </div>
+</div>

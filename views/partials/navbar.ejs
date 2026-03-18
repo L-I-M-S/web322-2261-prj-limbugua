@@ -1,0 +1,50 @@
+<div class="navbar bg-green-800 text-white shadow-md px-4">
+
+  <div class="flex-1">
+    <a href="/" class="flex items-center gap-2 hover:opacity-80">
+      <img src="/images/logo.png" alt="MamaMia Logo" class="h-10 w-10 rounded-full object-cover" onerror="this.style.display='none'" />
+      <span class="text-2xl font-bold text-yellow-300">MamaMia</span>
+    </a>
+  </div>
+
+  <div class="flex-none hidden md:flex">
+    <ul class="menu menu-horizontal gap-1 text-base">
+      <li><a href="/" class="hover:text-yellow-300">Home</a></li>
+      <li><a href="/mealkits" class="hover:text-yellow-300">On the Menu</a></li>
+
+      <% if (sessionUser) { %>
+        <li>
+          <a href="<%= sessionUser.role === 'clerk' ? '/mealkits/list' : '/cart' %>" class="text-yellow-200 font-semibold hover:text-yellow-300">
+            Hello, <%= sessionUser.firstName %>
+          </a>
+        </li>
+        <li><a href="/logout" class="btn btn-sm btn-warning ml-1">Logout</a></li>
+      <% } else { %>
+        <li><a href="/sign-up" class="hover:text-yellow-300">Sign Up</a></li>
+        <li><a href="/log-in" class="btn btn-sm btn-warning ml-1">Log In</a></li>
+      <% } %>
+    </ul>
+  </div>
+
+  <div class="flex-none md:hidden">
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost btn-circle text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+      <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-green-800 rounded-box w-48 text-white">
+        <li><a href="/">Home</a></li>
+        <li><a href="/mealkits">On the Menu</a></li>
+        <% if (sessionUser) { %>
+          <li><a href="<%= sessionUser.role === 'clerk' ? '/mealkits/list' : '/cart' %>">Hello, <%= sessionUser.firstName %></a></li>
+          <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+          <li><a href="/sign-up">Sign Up</a></li>
+          <li><a href="/log-in">Log In</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+
+</div>
