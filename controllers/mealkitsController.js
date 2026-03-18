@@ -1,5 +1,3 @@
-// controllers/mealkitsController.js
-
 const express = require("express");
 const router = express.Router();
 const mealKitData = require("../modules/mealkit-util");
